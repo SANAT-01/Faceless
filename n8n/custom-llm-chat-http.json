@@ -1,0 +1,96 @@
+{
+  "name": "Custom LLM Chat (HTTP + Header Auth)",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {
+          "responseMode": "lastNode",
+          "title": "Custom LLM Chat",
+          "subtitle": "llmapi.sanattudu.tech"
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000001",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [-60, 0],
+      "webhookId": "c0ffee00-0000-4000-8000-00000000c0de"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://llmapi.sanattudu.tech/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'auto', messages: [ { role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: $json.chatInput } ] }) }}",
+        "options": {
+          "timeout": 120000,
+          "response": {
+            "response": {
+              "neverError": false,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "a1000000-0000-4000-8000-000000000002",
+      "name": "Call custom LLM",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [180, 0],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID",
+          "name": "Custom LLM API (Header Auth)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b1000000-0000-4000-8000-000000000001",
+              "name": "output",
+              "value": "={{ $json.choices[0].message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "b1000000-0000-4000-8000-000000000002",
+              "name": "model_used",
+              "value": "={{ $json.model }}",
+              "type": "string"
+            },
+            {
+              "id": "b1000000-0000-4000-8000-000000000003",
+              "name": "total_tokens",
+              "value": "={{ $json.usage?.total_tokens ?? null }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1000000-0000-4000-8000-000000000003",
+      "name": "Extract reply",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [420, 0]
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [[{ "node": "Call custom LLM", "type": "main", "index": 0 }]]
+    },
+    "Call custom LLM": {
+      "main": [[{ "node": "Extract reply", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {},
+  "meta": { "instanceId": "custom-llm-chat" },
+  "tags": []
+}

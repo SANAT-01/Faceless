@@ -1,0 +1,77 @@
+{
+  "name": "Custom LLM Chat (OpenAI node + Agent + Memory)",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {
+          "responseMode": "lastNode",
+          "title": "Custom LLM Chat",
+          "subtitle": "llmapi.sanattudu.tech"
+        }
+      },
+      "id": "a2000000-0000-4000-8000-000000000001",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [-60, 0],
+      "webhookId": "c0ffee00-0000-4000-8000-00000000beef"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful assistant."
+        }
+      },
+      "id": "a2000000-0000-4000-8000-000000000002",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [200, 0]
+    },
+    {
+      "parameters": {
+        "model": "auto",
+        "options": {
+          "temperature": 0.7
+        }
+      },
+      "id": "a2000000-0000-4000-8000-000000000003",
+      "name": "Custom LLM (OpenAI-compatible)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [120, 220],
+      "credentials": {
+        "openAiApi": {
+          "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID",
+          "name": "Custom LLM (sanattudu)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "id": "a2000000-0000-4000-8000-000000000004",
+      "name": "Chat memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [320, 220]
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [[{ "node": "AI Agent", "type": "main", "index": 0 }]]
+    },
+    "Custom LLM (OpenAI-compatible)": {
+      "ai_languageModel": [[{ "node": "AI Agent", "type": "ai_languageModel", "index": 0 }]]
+    },
+    "Chat memory": {
+      "ai_memory": [[{ "node": "AI Agent", "type": "ai_memory", "index": 0 }]]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {},
+  "meta": { "instanceId": "custom-llm-chat" },
+  "tags": []
+}
