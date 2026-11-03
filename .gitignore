@@ -7,3 +7,7 @@
 *.synctex.gz
 *.build.log
 *.extracted.txt
+
+# Personal job-search materials (resumes contain phone number, email, CTC details).
+# Kept local on purpose - remove this rule only if you deliberately want them public.
+job-search/
