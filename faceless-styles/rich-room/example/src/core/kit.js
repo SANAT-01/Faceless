@@ -315,7 +315,7 @@ export function trefoil(x, y, s, b = 1, col = C.red) {
 }
 
 /** a warm 1966 laboratory: tiled wall, wood bench, glassware, one hanging lamp */
-export function labRoom({ mark = 0 } = {}) {
+export function labRoom({ mark = 0, markY = 620, markS = 0.86 } = {}) {
   ctx.fillStyle = '#6E5C44'; ctx.fillRect(0, 0, W, H);
   ctx.fillStyle = '#C9B48C'; ctx.fillRect(0, 0, W, GROUND - 120);
   for (let r0 = 0; r0 < 7; r0++) for (let c0 = 0; c0 < 6; c0++) {
@@ -325,7 +325,7 @@ export function labRoom({ mark = 0 } = {}) {
   line([[540, 0], [540, 210]], C.ink, 10);
   inked(() => { ctx.beginPath(); ctx.moveTo(400, 300); ctx.quadraticCurveTo(540, 170, 680, 300); ctx.closePath(); }, C.green, 9);
   pool(540, 340, 330);
-  if (mark > 0) trefoil(540, 620, 0.86 * mark, 1);
+  if (mark > 0) trefoil(540, markY, markS * mark, 1);
   // bench
   inked(() => { ctx.beginPath(); ctx.rect(-10, GROUND - 120, W + 20, H - GROUND + 140); }, '#6E5C44', 0);
   line([[0, GROUND - 120], [W, GROUND - 120]], C.ink, 9);

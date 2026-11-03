@@ -144,9 +144,9 @@ export function buildShots() {
   // 12 · one lesson, every lab on Earth
   { const st = cut_(11), tEarth = Wd('earth', 11) - st;
     add({ id: 'S12', at: st, cam: [540, 760], zoom: 0.09, note: 'the finished mark on the lab wall, the engineer beneath it', draw(lt, d, t) {
-      K.labRoom({ mark: eob(seg(lt, 0.1, 0.6)) });
+      K.labRoom({ mark: eob(seg(lt, 0.1, 0.6)), markY: 500, markS: 0.74 });
       K.person({ x: 560, y: K.GROUND - 56, h: 660, outfit: 'clerk', mood: 'smug', arms: { L: [-20, 0.78], R: [24, 0.78] } });
-      if (lt > tEarth) K.slip('EVERY LAB ON EARTH', 540, 1120, eob(clamp((lt - tEarth) / 0.35)), 0.02, 48);
+      if (lt > tEarth) K.slip('EVERY LAB ON EARTH', 540, 170, eob(clamp((lt - tEarth) / 0.35)), 0.02, 48);
     } });
     cue(st, 'whoosh'); cue(st + 0.1, 'sparkle'); cue(st + tEarth, 'pop'); }
 
