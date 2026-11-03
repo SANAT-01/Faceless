@@ -1,0 +1,92 @@
+% ATS-safe single-column resume template.
+% Fallback only — if the user has their own .tex, use theirs instead.
+% Compile: pdflatex resume.tex   (no fontspec, so pdflatex is fine)
+%
+% Tailored for: {{COMPANY}} — {{ROLE}} ({{JOB ID}})
+% Generated: {{DATE}}
+% Changes: {{one line on what was tailored for this JD}}
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{charter}            % clean, widely-available, extracts cleanly
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks,
+            pdftitle={{{FULL NAME}} - Resume},
+            pdfauthor={{{FULL NAME}}}]{hyperref}
+
+\pagestyle{empty}
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,parsep=0pt,topsep=2pt}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\vspace{-0.6em}\rule{\textwidth}{0.4pt}]
+\titlespacing{\section}{0pt}{1.0em}{0.4em}
+
+% \role{Title}{Company}{Location}{Dates}
+\newcommand{\role}[4]{%
+  \textbf{#1} \textendash{} #2 \hfill #4\\%
+  \textit{#3}\vspace{-0.2em}%
+}
+
+\begin{document}
+
+%--------------------------------------------------- Header
+\begin{center}
+  {\LARGE\bfseries {{FULL NAME}}}\\[0.3em]
+  {{City, State}} \textbullet{} \href{tel:{{PHONE}}}{{{PHONE}}} \textbullet{}
+  \href{mailto:{{EMAIL}}}{{{EMAIL}}}\\
+  \href{{{LINKEDIN URL}}}{{{linkedin.com/in/handle}}} \textbullet{}
+  \href{{{GITHUB URL}}}{{{github.com/handle}}}
+\end{center}
+
+%--------------------------------------------------- Summary
+\section{Summary}
+{{Two lines, rewritten per job. Name the role, the years of experience, and the two or three
+things this JD cares most about that the candidate has actually done. No adjectives like
+"passionate" or "results-driven".}}
+
+%--------------------------------------------------- Skills
+\section{Skills}
+\textbf{Languages:} {{..}} \\
+\textbf{Frameworks:} {{..}} \\
+\textbf{Infrastructure:} {{..}} \\
+\textbf{Databases:} {{..}} \\
+\textbf{Tools:} {{..}}
+% Order each line so the JD's required skills come first. Plain text only — no skill bars.
+
+%--------------------------------------------------- Experience
+\section{Experience}
+
+\role{{{Job Title}}}{{{Company}}}{{{City, India}}}{{{Mon YYYY}} -- {{Mon YYYY}}}
+\begin{itemize}
+  \item {{Most JD-relevant thing built, in plain terms, with a real number if one exists.}}
+  \item {{Next bullet. Vary the length — don't make every bullet the same shape.}}
+  \item {{..}}
+\end{itemize}
+
+\role{{{Previous Title}}}{{{Company}}}{{{City, India}}}{{{Mon YYYY}} -- {{Mon YYYY}}}
+\begin{itemize}
+  \item {{..}}
+  \item {{..}}
+\end{itemize}
+
+%--------------------------------------------------- Projects (keep if < 3 yrs experience)
+\section{Projects}
+\textbf{{{Project Name}}} \textendash{} {{stack}} \hfill \href{{{URL}}}{{{repo or demo}}}
+\begin{itemize}
+  \item {{What it does and what was hard about it.}}
+\end{itemize}
+
+%--------------------------------------------------- Education
+\section{Education}
+\textbf{{{Degree, Branch}}} \textendash{} {{College}}, {{City}} \hfill {{YYYY}}\\
+CGPA: {{x.xx/10}} % or percentage; include GATE score here if applicable
+
+%--------------------------------------------------- India-specific (optional)
+\section{Additional}
+Notice period: {{X days}} \textbullet{} Current CTC: {{X LPA}} \textbullet{}
+Expected CTC: {{Y LPA}} \textbullet{} Open to: {{Bangalore / Hyderabad / Remote}}
+% Drop this whole section for resumes going abroad.
+
+\end{document}

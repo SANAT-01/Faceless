@@ -1,0 +1,51 @@
+% Cover letter template. Under 300 words. Compile: pdflatex cover_letter.tex
+%
+% Tailored for: {{COMPANY}} — {{ROLE}} ({{JOB ID}})
+% Generated: {{DATE}}
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{charter}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage[hidelinks,
+            pdftitle={{{FULL NAME}} - Cover Letter - {{COMPANY}}},
+            pdfauthor={{{FULL NAME}}}]{hyperref}
+
+\pagestyle{empty}
+
+\begin{document}
+
+{\large\bfseries {{FULL NAME}}}\\
+{{City, State}} \textbullet{} \href{tel:{{PHONE}}}{{{PHONE}}} \textbullet{}
+\href{mailto:{{EMAIL}}}{{{EMAIL}}}
+
+\vspace{1em}
+{{DD Month YYYY}}
+
+\vspace{0.5em}
+Hiring Team, {{Company}}\\
+{{City}}
+
+\vspace{1em}
+Dear {{Hiring Manager name, or "Hiring Team" if unknown}},
+
+% Opening: why THIS company. One concrete, recent, specific thing — a product launch, an
+% engineering blog post, a funding round, something they shipped. No "I am writing to express
+% my interest in".
+{{Opening paragraph.}}
+
+% Middle: map two or three of the candidate's actual achievements onto this JD's requirements,
+% using the JD's own vocabulary. Concrete, not grandiose.
+{{Middle paragraph.}}
+
+% Closing: availability — notice period, relocation readiness, visa status if relevant.
+{{Closing paragraph.}}
+
+\vspace{1em}
+Regards,\\
+{{FULL NAME}}
+
+\end{document}
