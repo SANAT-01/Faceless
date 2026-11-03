@@ -11,3 +11,6 @@
 # Personal job-search materials (resumes contain phone number, email, CTC details).
 # Kept local on purpose - remove this rule only if you deliberately want them public.
 job-search/
+
+# Rendered video output (large binaries; regenerate with tools/capture.mjs)
+faceless-styles/**/renders/

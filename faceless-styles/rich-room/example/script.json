@@ -1,0 +1,31 @@
+{
+  "title": "How The Biohazard Sign Was Born",
+  "voice": "bm_george",
+  "speed": 1.0,
+  "lead": 0.4,
+  "outro": 1.0,
+  "gap": 0.26,
+  "music": "tension",
+  "sources": [
+    "99% Invisible, 'Biohazard: Iconic Symbol Designed to be Memorable but Meaningless' (Charles Baldwin, environmental-health engineer at Dow Chemical, 1966; design goal 'memorable but meaningless')",
+    "Wikipedia, 'Biological hazard' (Baldwin of Dow Chemical with Robert S. Runkle of the NIH; paper in Science calling for a universal biological hazard symbol)",
+    "GIGAZINE, 'How was the biohazard's mark designed?' (six finalist designs; two-phase test scoring memorability, with meaninglessness as the tiebreak; winner highest on memorability, lowest on meaningfulness)",
+    "Auburn University, 'The Biohazard Symbol' (history of the design and its selection)",
+    "Print Magazine, 'The Daily Heller: An Existential Bio Logo' (Baldwin's account of choosing a mark with no known meaning that was easy to remember)",
+    "NOTE: sources conflict on the exact test sample (often quoted as 300 people in 25 cities, single-source) and on the Science publication date (1966 vs 13 October 1967). The narration stays vague on both and makes no claim about OSHA or ISO adoption."
+  ],
+  "lines": [
+    { "text": "Before nineteen sixty-six, a lab full of deadly germs", "caps": "BEFORE *1966" },
+    { "text": "might warn you with almost anything.", "caps": "ALMOST *ANYTHING" },
+    { "text": "A skull, a cartoon bug, or nothing at all.", "caps": "A SKULL, A *BUG | OR *NOTHING" },
+    { "text": "So Dow Chemical put an engineer named Charles Baldwin on it,", "caps": "AN ENGINEER | *BALDWIN" },
+    { "text": "and he wanted a mark nobody had ever seen before.", "caps": "NEVER *SEEN BEFORE" },
+    { "text": "His team drew six designs,", "caps": "*SIX DESIGNS" },
+    { "text": "then showed them to hundreds of people across dozens of cities,", "caps": "*HUNDREDS TESTED | DOZENS OF *CITIES" },
+    { "text": "asking a strange pair of questions:", "caps": "A STRANGE *QUESTION" },
+    { "text": "which one do you remember, and which one means nothing to you?", "caps": "WHICH DO YOU *REMEMBER? | WHICH MEANS *NOTHING?" },
+    { "text": "The winner scored highest on memory and lowest on meaning.", "caps": "HIGH *MEMORY | LOW *MEANING" },
+    { "text": "That was the whole point: no story, no nation, no animal,", "caps": "NO STORY, NO *NATION" },
+    { "text": "so every lab on Earth could be taught the same thing.", "caps": "ONE *LESSON" }
+  ]
+}
